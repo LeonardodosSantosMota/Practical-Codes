@@ -1,0 +1,6 @@
+Species = {'Iris-setosa': 0,'Iris-versicolor': 1,'Iris-virginica':2}
+data.Species = [Species[item] for item in data.Species]
+
+# Iris-setosa -> The Key
+# 1,2 & 3 -> Values
+# Species -> Column
