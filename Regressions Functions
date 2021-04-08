@@ -1,0 +1,33 @@
+def bestregressions(x,y):
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LinearRegression
+    # Trainning data
+    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30)
+    # Linear Regression Model
+    print('-='*18)
+    modelL = LinearRegression()
+    modelL.fit(x_train,y_train)
+    resultL = modelL.score(x_test,y_test)
+    print('R^2 -> Linear Regression:',round(resultL,2)*100,'%')
+    print('-'*35)
+    # Ridge Regression Model
+    from sklearn.linear_model import Ridge
+    modelRR = Ridge()
+    modelRR.fit(x_train,y_train)
+    resultRR= modelRR.score(x_test,y_test)
+    print('R^2 -> Ridge Regression:',round(resultRR*100,2),'%')
+    print('-'*35)
+    # Lasso regression Model
+    from sklearn.linear_model import Lasso
+    modelLA = Lasso()
+    modelLA.fit(x_train,y_train)
+    resultLA = modelLA.score(x_test,y_test)
+    print('R^2 -> Lasso Regression',round(resultLA*100,2),'%')
+    print('-'*35)
+    # Elastic Net Model
+    from sklearn.linear_model import ElasticNet
+    modelEN = ElasticNet()
+    modelEN.fit(x_train,y_train)
+    resultEN = modelEN.score(x_test,y_test)
+    print('R^2 -> Elastic Net:',round(resultEN,2)*100,'%')
+    print('-='*18)
