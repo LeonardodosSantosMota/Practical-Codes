@@ -4,3 +4,5 @@ data.Species = [Species[item] for item in data.Species]
 # Iris-setosa -> The Key
 # 1,2 & 3 -> Values
 # Species -> Column
+
+data['column'] = data['column'].astype('choose a type')
