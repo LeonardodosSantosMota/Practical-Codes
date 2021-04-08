@@ -1,4 +1,4 @@
-def bestregressions(x,y):
+def regressions(x,y):
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LinearRegression
     # Trainning data
