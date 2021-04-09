@@ -1,3 +1,6 @@
+x = data.drop('Species', axis = 1)
+y = data['Species']
+
 def regressions(x,y):
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LinearRegression
@@ -31,3 +34,66 @@ def regressions(x,y):
     resultEN = modelEN.score(x_test,y_test)
     print('R^2 -> Elastic Net:',round(resultEN,2)*100,'%')
     print('-='*18)
+    
+    # You can use the next function but you need to make 'x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30)' first.
+    
+    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30,random_state = 10)
+    
+    def regressionmodels(a,b,c,d):
+    # importing libraries
+    from sklearn.linear_model import LinearRegression
+    from sklearn.linear_model import Lasso
+    from sklearn.linear_model import Ridge
+    from sklearn.linear_model import ElasticNet
+    # Variables
+    x_train = a
+    y_train = b
+    x_test = c
+    y_test = d
+    # Creating Models
+    reg = LinearRegression()
+    ridge = Ridge()
+    lasso = Lasso()
+    elastic = ElasticNet()
+    # Adjusting datas train
+    reg.fit(x_train,y_train)
+    ridge.fit(x_train,y_train)
+    lasso.fit(x_train,y_train)
+    elastic.fit(x_train,y_train)
+    # Score Models
+    result_reg = reg.score(x_test,y_test)
+    result_ridge = ridge.score(x_test,y_test)
+    result_lasso = lasso.score(x_test,y_test)
+    result_elastic = elastic.score(x_test,y_test)
+    print('-='*18)
+    # Linear Regression
+    print('R^2 -> Linear Regression:',round(result_reg,2)*100,'%')
+    print('-'*35)
+    # Ridge Regression Model
+    print('R^2 -> Ridge Regression:',round(result_ridge*100,2),'%')
+    print('-'*35)
+    # Lasso regression Model
+    print('R^2 -> Lasso Regression',round(result_lasso*100,2),'%')
+    print('-'*35)
+    # Elastic Net Model
+    print('R^2 -> Elastic Net:',round(result_elastic,2)*100,'%')
+    print('-='*18)
+    
+# e.g
+
+regressionmodels(x_train,y_train,x_test,y_test)
+
+''' 
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+R^2 -> Linear Regression: 92.0 %
+-----------------------------------
+R^2 -> Ridge Regression: 91.72 %
+-----------------------------------
+R^2 -> Lasso Regression 44.47 %
+-----------------------------------
+R^2 -> Elastic Net: 73.0 %
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+'''
+
+    
