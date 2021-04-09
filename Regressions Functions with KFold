@@ -45,7 +45,7 @@ def regressionmodelskfold(a,b,c,d):
         Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
         resultado = cross_val_score(reg,x,y,cv = Kfold)
         print('R^2 -> KFold:',round(resultado.mean()*100,2),'%')
-    elif result_ridge > result_reg and result_ridge > lasso.fit and result_ridge > result_elastic:
+    elif result_ridge > result_reg and result_ridge > result_lasso and result_ridge > result_elastic:
         Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
         resultado = cross_val_score(ridge,x,y,cv = Kfold)
         print('R^2 -> KFold:',round(resultado.mean()*100,2),'%')
