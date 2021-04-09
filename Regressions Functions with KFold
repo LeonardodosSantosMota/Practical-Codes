@@ -1,3 +1,41 @@
+def kfoldmodels(x,y):
+    # importing libraries
+    from sklearn.linear_model import LinearRegression
+    from sklearn.linear_model import Lasso
+    from sklearn.linear_model import Ridge
+    from sklearn.linear_model import ElasticNet
+    from sklearn.model_selection import KFold
+    from sklearn.model_selection import cross_val_score
+    # Creating Models
+    reg = LinearRegression()
+    ridge = Ridge()
+    lasso = Lasso()
+    elastic = ElasticNet()
+    # Adpting KFold Models
+    # Linear Regression
+    print('-='*20)
+    Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
+    resultreg = cross_val_score(reg,x,y,cv = Kfold)
+    print('R^2 -> Linear Regression KFold:',round(resultreg.mean()*100,2),'%')
+    print('-'*40)
+    # Ridge regression
+    Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
+    resultreg = cross_val_score(ridge,x,y,cv = Kfold)
+    print('R^2 -> Ridge Regression KFold:',round(resultreg.mean()*100,2),'%')
+    print('-'*40)
+    # Lasso regression
+    Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
+    resultreg = cross_val_score(lasso,x,y,cv = Kfold)
+    print('R^2 -> Lasso Regression KFold:',round(resultreg.mean()*100,2),'%')
+    print('-'*40)
+    # Elastic Net
+    Kfold = KFold(n_splits = 5, shuffle=True) # n_splits == k
+    resultreg = cross_val_score(elastic,x,y,cv = Kfold)
+    print('R^2 -> Elastic Net KFold:',round(resultreg.mean()*100,2),'%')
+    print('-='*20)
+    
+####################################################################################################################################
+
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30,random_state = 10)
 
 def regressionmodelskfold(a,b,c,d):
@@ -58,3 +96,4 @@ def regressionmodelskfold(a,b,c,d):
         resultado = cross_val_score(elastic,x,y,cv = Kfold)
         print('R^2 -> KFold:',round(resultado.mean()*100,2),'%')  
     print('-='*18)
+############################################################################################################################################################
