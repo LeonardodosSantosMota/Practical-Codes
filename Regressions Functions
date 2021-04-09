@@ -35,6 +35,8 @@ def regressions(x,y):
     print('R^2 -> Elastic Net:',round(resultEN,2)*100,'%')
     print('-='*18)
     
+    #############################################################################################################################################################33
+    
     # You can use the next function but you need to make 'x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30)' first.
     
     x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.30,random_state = 10)
@@ -79,6 +81,8 @@ def regressions(x,y):
     print('R^2 -> Elastic Net:',round(result_elastic,2)*100,'%')
     print('-='*18)
     
+##########################################################################################################################################################################
+    
 # e.g
 
 regressionmodels(x_train,y_train,x_test,y_test)
@@ -96,4 +100,5 @@ R^2 -> Elastic Net: 73.0 %
 
 '''
 
+##################################################################################################################################################################
     
